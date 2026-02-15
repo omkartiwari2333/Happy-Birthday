@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Happy Birthday NISHIT!</title>
+<title>Happy Birthday · NISHIT!!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
@@ -233,7 +233,7 @@ p {
   100% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 30px #ffee88; }
 }
 
-/* ---------- QUIZ ---------- */
+/* ---------- QUIZ with TEXT INPUTS ---------- */
 .quiz-container {
   margin: 15px 0 10px;
   text-align: left;
@@ -273,40 +273,32 @@ p {
   display: inline;
 }
 
-.options {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0 0;
-}
-
-.options li {
-  margin-bottom: 12px;
-  background: #ffece5;
-  border-radius: 60px;
-  padding: 10px 18px;
-  border: 2px solid #ffb3b3;
-  transition: 0.15s;
-}
-
-.options li:hover {
-  background: #ffdbd0;
-  border-color: #ff6f91;
-  transform: scale(1.01);
-}
-
-.options input[type="radio"] {
-  accent-color: #ff4d6d;
-  margin-right: 15px;
-  transform: scale(1.2);
-}
-
-.options label {
-  color: #3a2c3b;
+/* text input styling */
+.text-answer {
+  width: 100%;
+  padding: 14px 18px;
   font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  width: 90%;
-  display: inline-block;
+  border: 3px solid #ffb3b3;
+  border-radius: 60px;
+  background: #fff9f2;
+  color: #2d1b36;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.2s;
+  font-family: inherit;
+  box-shadow: inset 0 2px 5px #ffe0e0, 0 4px 0 #e09696;
+}
+
+.text-answer:focus {
+  border-color: #ff6f91;
+  background: #ffffff;
+  box-shadow: inset 0 2px 8px #ffc2c2, 0 4px 0 #ff4d6d;
+}
+
+.text-answer::placeholder {
+  color: #b38b8b;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 /* submit button */
@@ -363,6 +355,7 @@ p {
   display: block;
   margin-left: 10px;
   font-weight: 500;
+  word-break: break-word;
 }
 
 .answer-status {
@@ -449,7 +442,7 @@ p {
   <!-- hint text (dynamic) -->
   <p style="font-size:13px;" id="hint">(Click the candle to blow it out)</p>
 
-  <!-- CELEBRATION + 3‑QUESTION QUIZ (hidden initially) -->
+  <!-- CELEBRATION + 3 TEXT QUESTIONS (hidden initially) -->
   <div class="celebration hidden" id="celebration">
     <div class="happy-birthday-night">🎉 HAPPY BIRTHDAY NIGHT 🎉</div>
 
@@ -462,42 +455,27 @@ p {
       <div class="star star4"></div>
     </div>
 
-    <!-- 3 MCQs -->
+    <!-- 3 text-input questions -->
     <div class="quiz-container" id="quiz">
       <!-- Question 1 -->
       <div class="question-block" id="q1">
         <span class="q-num">1.</span>
         <div class="q-text">The first thing we did together</div>
-        <ul class="options">
-          <li><input type="radio" name="q1" id="q1a" value="A) Coffee/food at ____"><label for="q1a">A) Coffee/food at ____</label></li>
-          <li><input type="radio" name="q1" id="q1b" value="B) Long conversation about life"><label for="q1b">B) Long conversation about life</label></li>
-          <li><input type="radio" name="q1" id="q1c" value="C) Some random plan that turned into a core memory"><label for="q1c">C) Some random plan that turned into a core memory</label></li>
-          <li><input type="radio" name="q1" id="q1d" value="D) All of the above, somehow"><label for="q1d">D) All of the above, somehow</label></li>
-        </ul>
+        <input type="text" class="text-answer" id="ans1" placeholder="type your answer..." autocomplete="off">
       </div>
 
       <!-- Question 2 -->
       <div class="question-block" id="q2">
         <span class="q-num">2.</span>
         <div class="q-text">Our most iconic memory together</div>
-        <ul class="options">
-          <li><input type="radio" name="q2" id="q2a" value="A) That spontaneous trip"><label for="q2a">A) That spontaneous trip</label></li>
-          <li><input type="radio" name="q2" id="q2b" value="B) Late-night talk that lasted till dawn"><label for="q2b">B) Late-night talk that lasted till dawn</label></li>
-          <li><input type="radio" name="q2" id="q2c" value="C) The time we laughed until we cried"><label for="q2c">C) The time we laughed until we cried</label></li>
-          <li><input type="radio" name="q2" id="q2d" value="D) All of the above, honestly"><label for="q2d">D) All of the above, honestly</label></li>
-        </ul>
+        <input type="text" class="text-answer" id="ans2" placeholder="type your answer..." autocomplete="off">
       </div>
 
       <!-- Question 3 -->
       <div class="question-block" id="q3">
         <span class="q-num">3.</span>
         <div class="q-text">A habit we have when something feels important enough to talk about in person</div>
-        <ul class="options">
-          <li><input type="radio" name="q3" id="q3a" value="A) Find a quiet spot and just talk"><label for="q3a">A) Find a quiet spot and just talk</label></li>
-          <li><input type="radio" name="q3" id="q3b" value="B) Send a long voice note"><label for="q3b">B) Send a long voice note</label></li>
-          <li><input type="radio" name="q3" id="q3c" value="C) Schedule a call no matter what"><label for="q3c">C) Schedule a call no matter what</label></li>
-          <li><input type="radio" name="q3" id="q3d" value="D) Show up at each other's door"><label for="q3d">D) Show up at each other's door</label></li>
-        </ul>
+        <input type="text" class="text-answer" id="ans3" placeholder="type your answer..." autocomplete="off">
       </div>
 
       <!-- submit button -->
@@ -537,52 +515,49 @@ p {
     const summary2 = document.getElementById('summary2');
     const summary3 = document.getElementById('summary3');
 
-    // radio groups
-    const q1Radios = document.querySelectorAll('input[name="q1"]');
-    const q2Radios = document.querySelectorAll('input[name="q2"]');
-    const q3Radios = document.querySelectorAll('input[name="q3"]');
-    const allRadioGroups = [q1Radios, q2Radios, q3Radios];
+    // Input fields
+    const input1 = document.getElementById('ans1');
+    const input2 = document.getElementById('ans2');
+    const input3 = document.getElementById('ans3');
+    const allInputs = [input1, input2, input3];
 
     let isBlown = false;
 
-    function getSelectedValue(radios) {
-      for (let r of radios) if (r.checked) return r.value;
-      return null;
-    }
-
+    // Check if all inputs are non-empty (trim)
     function checkAllAnswered() {
-      const q1Selected = Array.from(q1Radios).some(r => r.checked);
-      const q2Selected = Array.from(q2Radios).some(r => r.checked);
-      const q3Selected = Array.from(q3Radios).some(r => r.checked);
-      submitBtn.disabled = !(q1Selected && q2Selected && q3Selected);
-      return !submitBtn.disabled;
+      const allFilled = allInputs.every(inp => inp.value.trim() !== '');
+      submitBtn.disabled = !allFilled;
+      return allFilled;
     }
 
-    // Enable/disable submit button when any radio changes
-    allRadioGroups.forEach(group => {
-      group.forEach(radio => {
-        radio.addEventListener('change', checkAllAnswered);
-      });
+    // Attach input event listeners to enable/disable submit button
+    allInputs.forEach(inp => {
+      inp.addEventListener('input', checkAllAnswered);
     });
 
-    // Candle click: blow it, reveal celebration, but keep summary hidden
+    // Candle click: blow it, reveal celebration, keep summary hidden
     candle.addEventListener('click', function() {
       if (isBlown) return;
       flame.classList.add('hidden');
       candle.classList.add('blown');
       celebration.classList.remove('hidden');
-      hint.textContent = '🎂 answer the 3 questions (double‑click candle to reset)';
+      hint.textContent = '🎂 type your answers (double‑click candle to reset)';
       hint.style.background = '#fbe192';
       isBlown = true;
 
-      // Ensure summary stays hidden (in case it was visible from previous session)
+      // Ensure summary stays hidden (fresh start)
       answerSummary.classList.add('hidden');
-      // Clear any old summary text (optional)
+      // Clear any old summary text
       summary1.textContent = '';
       summary2.textContent = '';
       summary3.textContent = '';
 
-      // Radios are all unchecked by default – perfect.
+      // Inputs are empty by default, but we also clear them to be safe (they are already empty on first load)
+      // However, if user reset earlier, they might have values; we want fresh start:
+      input1.value = '';
+      input2.value = '';
+      input3.value = '';
+
       checkAllAnswered();
     });
 
@@ -596,17 +571,16 @@ p {
       hint.textContent = '(Click the candle to blow it out)';
       hint.style.background = '#fff8dd';
 
-      // Clear all radio selections
-      q1Radios.forEach(r => r.checked = false);
-      q2Radios.forEach(r => r.checked = false);
-      q3Radios.forEach(r => r.checked = false);
+      // Clear all inputs
+      input1.value = '';
+      input2.value = '';
+      input3.value = '';
 
       answerStatus.textContent = '';
       submitBtn.disabled = true;
 
-      // Hide summary (it will only reappear after a new submission)
+      // Hide summary
       answerSummary.classList.add('hidden');
-      // Optionally clear its text
       summary1.textContent = '';
       summary2.textContent = '';
       summary3.textContent = '';
@@ -618,9 +592,9 @@ p {
     submitBtn.addEventListener('click', function() {
       if (!isBlown || submitBtn.disabled) return;
 
-      const ans1 = getSelectedValue(q1Radios);
-      const ans2 = getSelectedValue(q2Radios);
-      const ans3 = getSelectedValue(q3Radios);
+      const ans1 = input1.value.trim();
+      const ans2 = input2.value.trim();
+      const ans3 = input3.value.trim();
 
       if (!ans1 || !ans2 || !ans3) {
         answerStatus.textContent = '❌ please answer all questions';
@@ -635,7 +609,7 @@ p {
 
       answerStatus.textContent = '✔ answers saved!';
 
-      // Update summary with the answers the user just selected
+      // Update summary with the typed answers
       summary1.textContent = `1. ${ans1}`;
       summary2.textContent = `2. ${ans2}`;
       summary3.textContent = `3. ${ans3}`;
@@ -653,6 +627,4 @@ p {
 </script>
 
 </body>
-
 </html>
-
