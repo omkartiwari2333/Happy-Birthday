@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy Birthday · colourful celebration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+/* ========== FULL COLORFUL THEME ========== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f9e3b3 0%, #ffcfdf 50%, #b7e9ff 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e2b3c;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.1rem;
+  letter-spacing: 0.4px;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, #d04e9f, #f3822c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 10px rgba(255,255,200,0.8);
+}
+
+p {
+  margin: 0;
+  font-size: 15px;
+  color: #2d4059;
+  font-weight: 500;
+}
+
+/* ---------- CAKE STAGE ---------- */
+.cake-stage {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cake-wrapper {
+  position: relative;
+  width: 180px;
+}
+
+.plate {
+  width: 180px;
+  height: 12px;
+  background: #ffd89c;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 5px 0 #e0a86b, 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.cake {
+  width: 140px;
+  margin: 0 auto;
+}
+
+.icing {
+  height: 14px;
+  background: #ff8eb5;
+  border-radius: 10px 10px 6px 6px;
+  margin-bottom: 4px;
+  box-shadow: inset 0 2px 5px #fff9, 0 3px 0 #c14a7a;
+}
+
+.layer:first-of-type {
+  height: 45px;
+  background: #fcee8f;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 0 #d4a22b, inset 0 2px 5px #ffffdd;
+}
+
+.layer:last-of-type {
+  height: 45px;
+  background: #7bc9ff;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 0 #2f7ab3, inset 0 2px 5px #e5f3ff;
+}
+
+/* ---------- CANDLE ---------- */
+.candle {
+  width: 10px;
+  height: 36px;
+  background: #fffde7;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 4px 0 #d3c9b0, inset -1px -2px 3px rgba(0,0,0,0.1);
+}
+
+.flame {
+  width: 16px;
+  height: 16px;
+  background: #ffb347;
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 25px #ff6700, 0 0 45px #ffbb33;
+  animation: flicker 0.25s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.95; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.candle.blown {
+  background: #d9d0b5;
+  box-shadow: 0 2px 0 #b3a78b;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- DAYLIGHT PARTY ---------- */
+.celebration {
+  margin-top: 20px;
+  padding: 16px 10px 25px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 60px 60px 40px 40px;
+  border: 3px solid #ffc7d1;
+  box-shadow: 0 20px 30px rgba(255,140,200,0.4), 0 0 0 4px #fff9 inset;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.happy-birthday-night {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: linear-gradient(145deg, #fc4a1a, #f7b733, #ac25b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 3px 0 #ffe77a, 5px 5px 20px #ffc800;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  animation: pulseGlow 1.3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { text-shadow: 2px 2px 0 #ffe77a, 0 0 20px #ffae42; }
+  100% { text-shadow: 4px 4px 0 #f5b342, 0 0 40px #ff4d6d; }
+}
+
+/* sky */
+.night-sky {
+  position: relative;
+  height: 80px;
+  margin: 5px 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c1e6ff;
+  border-radius: 100px;
+  box-shadow: inset 0 -5px 0 #ace0ff;
+}
+
+.moon {
+  width: 50px;
+  height: 50px;
+  background: #fffab7;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #ffdd99, 0 0 50px #fff2b5;
+  position: relative;
+  margin: 0 8px;
+}
+
+.moon::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #ffe68f;
+  border-radius: 50%;
+  top: 5px;
+  left: 10px;
+  opacity: 0.4;
+}
+
+.star {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffffbb;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffb300;
+  animation: twinkle 1.2s infinite alternate;
+}
+
+.star1 { top: 10px; left: 30px; animation-delay: 0s; }
+.star2 { top: 45px; right: 20px; width: 12px; height: 12px; animation-delay: 0.4s; }
+.star3 { bottom: 12px; left: 70px; animation-delay: 0.8s; }
+.star4 { top: 5px; right: 70px; width: 7px; height: 7px; animation-delay: 0.2s; }
+
+@keyframes twinkle {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 30px #ffee88; }
+}
+
+/* ---------- QUIZ ---------- */
+.quiz-container {
+  margin: 15px 0 10px;
+  text-align: left;
+  background: #fffaf2;
+  padding: 25px 20px;
+  border-radius: 50px 50px 30px 30px;
+  box-shadow: 0 15px 0 #ffb8b8, 0 20px 30px rgba(255,140,140,0.5);
+  border: 3px solid white;
+}
+
+.question-block {
+  margin-bottom: 30px;
+  border-bottom: 2px dotted #ff98b9;
+  padding-bottom: 20px;
+}
+.question-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.q-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e84393;
+  margin-right: 10px;
+  background: #fff0f5;
+  padding: 0 8px;
+  border-radius: 30px;
+}
+.q-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3e50;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  display: inline;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.options li {
+  margin-bottom: 12px;
+  background: #ffece5;
+  border-radius: 60px;
+  padding: 10px 18px;
+  border: 2px solid #ffb3b3;
+  transition: 0.15s;
+}
+
+.options li:hover {
+  background: #ffdbd0;
+  border-color: #ff6f91;
+  transform: scale(1.01);
+}
+
+.options input[type="radio"] {
+  accent-color: #ff4d6d;
+  margin-right: 15px;
+  transform: scale(1.2);
+}
+
+.options label {
+  color: #3a2c3b;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 90%;
+  display: inline-block;
+}
+
+/* submit button */
+.btn-submit {
+  background: linear-gradient(145deg, #ffb347, #ff8c42, #ff4d6d);
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 16px 25px;
+  border-radius: 60px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #a13200, 0 15px 25px rgba(255,80,80,0.6);
+  transition: 0.06s linear;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  border: 2px solid #fff8dd;
+}
+
+.btn-submit:active {
+  transform: translateY(7px);
+  box-shadow: 0 2px 0 #a13200, 0 8px 15px #ffaaa5;
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  transform: none;
+  box-shadow: 0 4px 0 #7f4d4d;
+  pointer-events: none;
+}
+
+/* answer summary card – appears only after submit */
+.answer-summary {
+  margin-top: 20px;
+  padding: 15px 15px;
+  background: #fffbcb;
+  border-radius: 50px;
+  border: 4px solid #ffba7a;
+  font-size: 1rem;
+  color: #2f3640;
+  text-align: left;
+  line-height: 1.8;
+  box-shadow: 0 10px 0 #fdab61;
+}
+.answer-summary strong {
+  color: #c44569;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+.answer-summary span {
+  display: block;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.answer-status {
+  font-size: 1rem;
+  color: #1f7a1f;
+  margin-top: 12px;
+  min-height: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- POPUP MESSAGE ---------- */
+.popup-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff9e6;
+  border: 8px solid #ffc2d9;
+  border-radius: 90px 20px 90px 20px;
+  padding: 35px 25px;
+  box-shadow: 0 25px 0 #fba0a0, 0 40px 50px #ffb9b9;
+  z-index: 999;
+  width: 300px;
+  text-align: center;
+  color: #2d1b36;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  backdrop-filter: blur(4px);
+  animation: popIn 0.3s ease-out;
+}
+
+.popup-message small {
+  display: block;
+  margin-top: 25px;
+  font-size: 1rem;
+  color: #f05454;
+  cursor: pointer;
+  text-decoration: underline wavy #f59;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: translate(-50%, -40%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+#hint {
+  transition: color 0.3s;
+  font-weight: 600;
+  background: #fff8dd;
+  padding: 6px 18px;
+  border-radius: 40px;
+  box-shadow: 0 3px 0 #ffb282;
+  color: #a6416b;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>✨ Go ahead. Make a wish. ✨</h1>
+  <p>Curiosity has its rewards.</p>
+
+  <!-- CAKE STAGE (colourful) -->
+  <div class="cake-stage">
+    <div class="cake-wrapper">
+      <div class="candle" id="candle">
+        <div class="flame" id="flame"></div>
+      </div>
+
+      <div class="cake">
+        <div class="icing"></div>   <!-- pink -->
+        <div class="layer"></div>    <!-- yellow -->
+        <div class="layer"></div>    <!-- blue -->
+      </div>
+
+      <div class="plate"></div>
+    </div>
+  </div>
+
+  <!-- hint text (dynamic) -->
+  <p style="font-size:13px;" id="hint">(Click the candle to blow it out)</p>
+
+  <!-- CELEBRATION + 3‑QUESTION QUIZ (hidden initially) -->
+  <div class="celebration hidden" id="celebration">
+    <div class="happy-birthday-night">🎉 HAPPY BIRTHDAY NIGHT 🎉</div>
+
+    <!-- sunny sky -->
+    <div class="night-sky">
+      <div class="moon"></div>
+      <div class="star star1"></div>
+      <div class="star star2"></div>
+      <div class="star star3"></div>
+      <div class="star star4"></div>
+    </div>
+
+    <!-- 3 MCQs -->
+    <div class="quiz-container" id="quiz">
+      <!-- Question 1 -->
+      <div class="question-block" id="q1">
+        <span class="q-num">1.</span>
+        <div class="q-text">The first thing we did together</div>
+        <ul class="options">
+          <li><input type="radio" name="q1" id="q1a" value="A) Coffee/food at ____"><label for="q1a">A) Coffee/food at ____</label></li>
+          <li><input type="radio" name="q1" id="q1b" value="B) Long conversation about life"><label for="q1b">B) Long conversation about life</label></li>
+          <li><input type="radio" name="q1" id="q1c" value="C) Some random plan that turned into a core memory"><label for="q1c">C) Some random plan that turned into a core memory</label></li>
+          <li><input type="radio" name="q1" id="q1d" value="D) All of the above, somehow"><label for="q1d">D) All of the above, somehow</label></li>
+        </ul>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-block" id="q2">
+        <span class="q-num">2.</span>
+        <div class="q-text">Our most iconic memory together</div>
+        <ul class="options">
+          <li><input type="radio" name="q2" id="q2a" value="A) That spontaneous trip"><label for="q2a">A) That spontaneous trip</label></li>
+          <li><input type="radio" name="q2" id="q2b" value="B) Late-night talk that lasted till dawn"><label for="q2b">B) Late-night talk that lasted till dawn</label></li>
+          <li><input type="radio" name="q2" id="q2c" value="C) The time we laughed until we cried"><label for="q2c">C) The time we laughed until we cried</label></li>
+          <li><input type="radio" name="q2" id="q2d" value="D) All of the above, honestly"><label for="q2d">D) All of the above, honestly</label></li>
+        </ul>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-block" id="q3">
+        <span class="q-num">3.</span>
+        <div class="q-text">A habit we have when something feels important enough to talk about in person</div>
+        <ul class="options">
+          <li><input type="radio" name="q3" id="q3a" value="A) Find a quiet spot and just talk"><label for="q3a">A) Find a quiet spot and just talk</label></li>
+          <li><input type="radio" name="q3" id="q3b" value="B) Send a long voice note"><label for="q3b">B) Send a long voice note</label></li>
+          <li><input type="radio" name="q3" id="q3c" value="C) Schedule a call no matter what"><label for="q3c">C) Schedule a call no matter what</label></li>
+          <li><input type="radio" name="q3" id="q3d" value="D) Show up at each other's door"><label for="q3d">D) Show up at each other's door</label></li>
+        </ul>
+      </div>
+
+      <!-- submit button -->
+      <button class="btn-submit" id="submitAll" disabled>✨ reveal the message ✨</button>
+      <div class="answer-status" id="answerStatus"></div>
+
+      <!-- saved answers summary – hidden until first submission -->
+      <div class="answer-summary hidden" id="answerSummary">
+        <strong>📋 Your colourful answers:</strong>
+        <span id="summary1"></span>
+        <span id="summary2"></span>
+        <span id="summary3"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- hidden popup (final message) -->
+  <div class="popup-message hidden" id="popup">
+    “You notice details most people miss.”<br>That’s kind of your thing.
+    <small id="closePopup">(click to close)</small>
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    const candle = document.getElementById('candle');
+    const flame = document.getElementById('flame');
+    const hint = document.getElementById('hint');
+    const celebration = document.getElementById('celebration');
+    const submitBtn = document.getElementById('submitAll');
+    const answerStatus = document.getElementById('answerStatus');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const answerSummary = document.getElementById('answerSummary');
+    const summary1 = document.getElementById('summary1');
+    const summary2 = document.getElementById('summary2');
+    const summary3 = document.getElementById('summary3');
+
+    // radio groups
+    const q1Radios = document.querySelectorAll('input[name="q1"]');
+    const q2Radios = document.querySelectorAll('input[name="q2"]');
+    const q3Radios = document.querySelectorAll('input[name="q3"]');
+    const allRadioGroups = [q1Radios, q2Radios, q3Radios];
+
+    let isBlown = false;
+
+    function getSelectedValue(radios) {
+      for (let r of radios) if (r.checked) return r.value;
+      return null;
+    }
+
+    function checkAllAnswered() {
+      const q1Selected = Array.from(q1Radios).some(r => r.checked);
+      const q2Selected = Array.from(q2Radios).some(r => r.checked);
+      const q3Selected = Array.from(q3Radios).some(r => r.checked);
+      submitBtn.disabled = !(q1Selected && q2Selected && q3Selected);
+      return !submitBtn.disabled;
+    }
+
+    // Enable/disable submit button when any radio changes
+    allRadioGroups.forEach(group => {
+      group.forEach(radio => {
+        radio.addEventListener('change', checkAllAnswered);
+      });
+    });
+
+    // Candle click: blow it, reveal celebration, but keep summary hidden
+    candle.addEventListener('click', function() {
+      if (isBlown) return;
+      flame.classList.add('hidden');
+      candle.classList.add('blown');
+      celebration.classList.remove('hidden');
+      hint.textContent = '🎂 answer the 3 questions (double‑click candle to reset)';
+      hint.style.background = '#fbe192';
+      isBlown = true;
+
+      // Ensure summary stays hidden (in case it was visible from previous session)
+      answerSummary.classList.add('hidden');
+      // Clear any old summary text (optional)
+      summary1.textContent = '';
+      summary2.textContent = '';
+      summary3.textContent = '';
+
+      // Radios are all unchecked by default – perfect.
+      checkAllAnswered();
+    });
+
+    // Double‑click candle: reset everything
+    candle.addEventListener('dblclick', function(e) {
+      e.stopPropagation();
+      flame.classList.remove('hidden');
+      candle.classList.remove('blown');
+      celebration.classList.add('hidden');
+      popup.classList.add('hidden');
+      hint.textContent = '(Click the candle to blow it out)';
+      hint.style.background = '#fff8dd';
+
+      // Clear all radio selections
+      q1Radios.forEach(r => r.checked = false);
+      q2Radios.forEach(r => r.checked = false);
+      q3Radios.forEach(r => r.checked = false);
+
+      answerStatus.textContent = '';
+      submitBtn.disabled = true;
+
+      // Hide summary (it will only reappear after a new submission)
+      answerSummary.classList.add('hidden');
+      // Optionally clear its text
+      summary1.textContent = '';
+      summary2.textContent = '';
+      summary3.textContent = '';
+
+      isBlown = false;
+    });
+
+    // Submit: save answers, show summary, pop up message
+    submitBtn.addEventListener('click', function() {
+      if (!isBlown || submitBtn.disabled) return;
+
+      const ans1 = getSelectedValue(q1Radios);
+      const ans2 = getSelectedValue(q2Radios);
+      const ans3 = getSelectedValue(q3Radios);
+
+      if (!ans1 || !ans2 || !ans3) {
+        answerStatus.textContent = '❌ please answer all questions';
+        return;
+      }
+
+      // Save to localStorage
+      localStorage.setItem('birthdayQuiz_1', ans1);
+      localStorage.setItem('birthdayQuiz_2', ans2);
+      localStorage.setItem('birthdayQuiz_3', ans3);
+      localStorage.setItem('quizTimestamp', new Date().toLocaleString());
+
+      answerStatus.textContent = '✔ answers saved!';
+
+      // Update summary with the answers the user just selected
+      summary1.textContent = `1. ${ans1}`;
+      summary2.textContent = `2. ${ans2}`;
+      summary3.textContent = `3. ${ans3}`;
+      answerSummary.classList.remove('hidden'); // now show it
+
+      // Show popup
+      popup.classList.remove('hidden');
+    });
+
+    // Close popup
+    closePopup.addEventListener('click', function() {
+      popup.classList.add('hidden');
+    });
+  })();
+</script>
+
+</body>
+</html>
